@@ -1,0 +1,15 @@
+{
+    "name": "joaogabriel/sistema-crud",
+    "autoload": {
+        "psr-4": {
+            "APP\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "João Gabriel",
+            "email": "jgquadros2005@gmail.com"
+        }
+    ],
+    "require": {}
+}
