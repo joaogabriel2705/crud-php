@@ -53,17 +53,10 @@
                     <?php foreach ($_SESSION['validation_errors']['email_error'] as $email_error): ?>
                         <span class="text-danger">
                             <?= $email_error ?>
+                            <br>
                         </span>
                     <?php endforeach; ?>
                 <?php endif; ?>
-                <?php if (isset($_SESSION['validation_errors']['exist_user_error'])): ?>
-                    <?php foreach ($_SESSION['validation_errors']['exist_user_error'] as $exist_user_error): ?>
-                        <span class="text-danger">
-                            <?= $exist_user_error ?>
-                        </span>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-
             </div>
 
             <!-- Campo de Senha -->

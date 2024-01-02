@@ -48,12 +48,13 @@
                             <?= $user['password']; ?>
                         </td>
                         <td>
-                            <a href="#" class="btn btn-warning">
+                            <a href="../controller/UserController.php?request=edit&id_user=<?= $user['id_user'] ?>" 
+                            class="btn btn-warning">
                                 Editar
                                 <i class="fa-solid fa-pen ml-2"></i>
                             </a>
 
-                            <a href="#" class="btn btn-outline-danger">
+                            <a href="../controller/UserController.php?request=delete&id_user=<?= $user['id_user'] ?>" class="btn btn-outline-danger">
                                 Deletar
                                 <i class="fa-solid fa-trash ml-2"></i>
                             </a>

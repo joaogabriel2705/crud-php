@@ -11,7 +11,7 @@ class UserDAO
 {
     private static PDO $connection;
 
-    public static function save(User $user)
+    public static function save(User $user) : void
     {
         self::$connection = Connection::getConnection();
         $sql = "INSERT INTO user (name, email, password) VALUES (?, ?, ?)";
@@ -28,7 +28,7 @@ class UserDAO
         }
     }
 
-    public static function update(User $user): bool
+    public static function update(User $user) : bool
     {
         self::$connection = Connection::getConnection();
         $sql = "UPDATE user SET name = ?, email = ?, password = ? WHERE id_user = ?";
@@ -46,7 +46,7 @@ class UserDAO
         }
     }
 
-    public static function delete(int $id)
+    public static function delete(int $id) : void
     {
         self::$connection = Connection::getConnection();
         $sql = "DELETE FROM user WHERE id_user = ?";
@@ -104,28 +104,5 @@ class UserDAO
         
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
-
-    public static function verifyIfUserExist(string $email, string $password) 
-    {
-        self::$connection = Connection::getConnection();
-
-        $sql = "SELECT * FROM user WHERE email = '$email'";
-
-        try {
-            $statement = self::$connection->query($sql);
-
-            $result = $statement->fetch(PDO::FETCH_ASSOC);
-
-            if ($result && password_verify($password, $result["password"])) {
-                return $result;
-            }
-
-        } catch (PDOException $e) {
-            throw new PDOException("Erro ao tentar encontrar o usuário " . $e->getMessage());
-        }
-
-        return $statement->fetch(PDO::FETCH_ASSOC);
-    }
-
 }
 ?>

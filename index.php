@@ -34,7 +34,7 @@ if (isset($_SESSION['user_login'])) {
                     <ul class="dropdown-menu">
                         <li class="dropdown-item">
                             <strong>Olá
-                                <?= $data_user['name'] ?>
+                                <?= $data_user['name'] ?>!
                             </strong>
                         </li>
 
@@ -57,14 +57,16 @@ if (isset($_SESSION['user_login'])) {
                 <?php endif; ?>
             </div>
         </div>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="src/view/form-signUp.php?request=sign-up">Cadastrar</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="src/view/form-signIn.php?request=sign-in">Entrar</a>
-            </li>
-        </ul>
+        <?php if (!isset($_SESSION['user_login'])): ?>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="src/view/form-signUp.php?request=sign-up">Cadastrar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="src/view/form-signIn.php?request=sign-in">Entrar</a>
+                </li>
+            </ul>
+        <?php endif; ?>
     </nav>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
